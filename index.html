@@ -286,8 +286,7 @@
     <h2>Mari terhubung</h2>
     <p class="lead">Lihat kode saya di GitHub atau sapa saya lewat Instagram.</p>
     <div class="socials">
-      <!-- Ganti USERNAME dengan akun kamu -->
-      <a class="social" href="https://github.com/YoubelJansenDev" target="_blank" rel="noopener">
+            <a class="social" href="https://github.com/YoubelJansenDev" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
         GitHub
       </a>
@@ -307,23 +306,32 @@
     { name: 'HTML',       icon: 'html5/html5-original.svg' },
     { name: 'CSS',        icon: 'css3/css3-original.svg' },
     { name: 'TypeScript', icon: 'typescript/typescript-original.svg' },
-    { name: 'Next.js',    icon: 'nextjs/nextjs-original.svg' },
-    { name: 'React',      icon: 'react/react-original.svg' },
-    { name: 'Tailwind',   icon: 'tailwindcss/tailwindcss-original.svg' },
+    { name: 'Java',       icon: 'java/java-original.svg' },
     { name: 'Go',         icon: 'go/go-original.svg' },
     { name: 'Python',     icon: 'python/python-original.svg' },
     { name: 'PHP',        icon: 'php/php-original.svg' },
+    { name: 'React',      icon: 'react/react-original.svg' },
+    { name: 'Next.js',    icon: 'nextjs/nextjs-original.svg' },
+    { name: 'Vue.js',     icon: 'vuejs/vuejs-original.svg' },
+    { name: 'Nuxt.js',    icon: 'nuxtjs/nuxtjs-original.svg' },
+    { name: 'Tailwind',   icon: 'tailwindcss/tailwindcss-original.svg' },
     { name: 'Laravel',    icon: 'laravel/laravel-original.svg' },
+    { name: 'Node.js',    icon: 'nodejs/nodejs-original.svg' },
+    { name: 'Express.js', icon: 'express/express-original.svg' },
+    { name: 'Ionic',      icon: 'ionic/ionic-original.svg' },
     { name: 'PostgreSQL', icon: 'postgresql/postgresql-original.svg' },
     { name: 'MySQL',      icon: 'mysql/mysql-original.svg' },
     { name: 'Supabase',   icon: 'supabase/supabase-original.svg' },
+    { name: 'Docker',     icon: 'docker/docker-original.svg' },
     { name: 'Vercel',     icon: 'vercel/vercel-original.svg' }
   ];
 
   // Ganti judul, deskripsi, tag, dan link repo sesuai proyek aslimu
   var projects = [
-    { title: 'E-ProcSystem', image: 'Dashboardeprocurement.png', desc: 'Platform e-procurement yang mengotomatisasi proses dari Purchase Request, sourcing, hingga 3-way matching invoicing.', tags: ['Next.js', 'Golang', 'PostGre SQL'], repo: 'https://github.com/YoubelJansenDev/e-procurement-website' },
-    ];
+    { title: 'E-ProcSystem', image: 'Dashboardeprocurement.png', desc: 'Platform e-procurement yang mengotomatisasi proses dari Purchase Request, sourcing, hingga 3-way matching invoicing.', tags: ['Next.js', 'Golang', 'PostgreSQL'], repo: 'https://github.com/YoubelJansenDev/e-procurement-website' },
+    { title: 'Pengajuan Cuti Karyawan', image: 'cuti-karyawan.png', desc: 'Aplikasi SaaS multi-tenant untuk manajemen cuti karyawan. Banyak perusahaan bisa mendaftar dengan data yang terisolasi penuh.', tags: ['React', 'Express.js', 'PostgreSQL'], repo: 'https://github.com/YoubelJansenDev/website-pengajuan-cuti-karyawan' },
+    { title: 'SmashArena', image: 'smasharena.png', desc: 'Aplikasi booking lapangan badminton dan sewa alat online untuk GOR UMKM, lengkap dengan verifikasi pesanan oleh admin.', tags: ['Nuxt.js', 'Laravel', 'MySQL'], repo: 'https://github.com/YoubelJansenDev/website-sewa-lapangan-badminton' }
+  ];
   // =================================
 
   var tg = document.getElementById('toolsGrid');
@@ -351,7 +359,10 @@
     var th = a.querySelector('.thumb');
     if (p.image) {
       th.innerHTML = '<img loading="lazy">';
-      th.firstChild.src = p.image; th.firstChild.alt = 'Tampilan dashboard ' + p.title;
+      var im = th.firstChild;
+      im.alt = 'Tampilan ' + p.title;
+      im.onerror = function () { th.innerHTML = '<b></b>'; th.querySelector('b').textContent = p.title; };
+      im.src = p.image;
     } else {
       th.querySelector('b').textContent = p.title;
     }
